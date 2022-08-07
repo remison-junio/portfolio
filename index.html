@@ -3,127 +3,350 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+
 		<title>Remison Junio - Programador Front-End</title>
-		
+
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+
+		<!--  Font Logo -->
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">		
 	</head>
 
 	<body>
-		<header>
-			<nav>
-				<ul>
-					<div>
-						<a href="">Menu</a>
-					</div>
+		<header class="header bg-transparent">
+			<div class="container">
+				<nav id="navegacao" class="nav">
+					
+					<a href="#" id="btn-menu" class="btn-menu" href="">
+						<i class="fa-solid fa-bars open"></i>
+						<i class="fa-solid fa-xmark close"></i>
+					</a>
 
-					<li>
-						<a href="">Home</a>
-					</li>
+					<a href="" class="logo">
+						<span class="logo-titulo">Portfólio</span> 
+						<span class="logo-nome">Remison J.</span>
+					</a>
 
-					<li>
-						<a href="">Sobre</a>
-					</li>
+					<ul class="menu">
+						<li class="menu-item">
+							<a href="#" class="menu-link active" href="">
+								<i class="fa-solid fa-house"></i>
+								<span>Home</span>
+							</a>
+						</li>
 
-					<li>
-						<a href="">Portifólio</a>
-					</li>
+						<li class="menu-item">
+							<a href="#" class="menu-link" href="">
+								<i class="fa-solid fa-user"></i>
+								<span>Sobre</span>
+							</a>
+						</li>
 
-					<li>
-						<a href="">Contato</a>
-					</li>
-				</ul>
-			</nav>
+						<li class="menu-item">
+							<a href="#" class="menu-link" href="">
+								<i class="fa-solid fa-briefcase"></i>
+								<span>Portfólio</span>
+							</a>
+						</li>
+
+						<li class="menu-item">
+							<a href="#" class="menu-link" href="">
+								<i class="fa-solid fa-address-card"></i>
+								<span>Contato</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
 		</header>
 
 		<main>
-			<section id="home">
-				<div>
-					<h2>
-						Hello World!
-					</h2>
+			<div class="bg-menu-aberto"></div>
 
-					<h1>
-						Eu sou o Remison Junio
-					</h1>
+			<section id="home" class="home page inicial active">
 
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</p>
-
-					<a href="">Mais sobre mim</a>
+				<div class="bg-home">
+					<img src="assets/imagens/bg-home.jpg">
 				</div>
 
-				<div>
-					imagem
+				<div class="container">
+					<div class="textos">
+						<h3 id="hello" class="hello">
+							Hello World!
+						</h3>
+
+						<h1 class="titulo-principal">Eu sou o <span class="cor-destaque">Remison Junio</span></h1>
+
+						<p class="paragrafo">
+							Desenvolvedor Front-End
+						</p>
+
+						<div class="home-btns">
+							<a id="btn-sobreMim" href="" class="btn btn-secundario">Sobre mim</a>
+
+							<a id="btn-portfolio" href="" class="btn btn-secundario">Portfólio</a>
+						</div>
+					</div>
 				</div>
-				
 			</section>
 
-			<section id="sobre">
-				<h3>Sobre</h3>
+			<section id="sobre" class="sobre bg-principal page">
+				<div class="container">
+					<h3 class="titulo-principal text-center">
+						Sobre <span class="cor-destaque">Mim</span>
+					</h3>
 
-				<div class="mais">
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</p>
+					<div class="grid">
+						<div class="imagem">
+							<img src="assets/imagens/perfil-1.jpg">
+						</div>
+						
+						<p class="paragrafo">
+							Olá! Me chamo Remison e a minha história na programação começa em 2020, quando procurando por um curso encontrei um de desenvolvimento Web, foi amor a primeira vista <span class="coracao-icon">&#x2764;</span>. 
+							De lá pra cá foram horas de estudos diárias, muitos bugs, muitos sonos perdidos, mas na maiorias das vezes satisfação e felicidade ao ver o código funcionando.
+							Sou apaixonado por front-end, por sites responsivos e pela liberdade que o JavaScript dá.
+						</p>
+
+						<div class="skills">
+							<h4 class="titulo-secundario">SKILLS</h4>
+
+							<ul>
+								<li>
+									<i class="fa-brands fa-html5"></i>
+									<span>HTML</span>
+								</li>
+
+								<li>
+									<i class="fa-brands fa-css3-alt"></i>
+									<span>CSS</span>
+								</li>
+
+								<li>
+									<i class="fa-brands fa-js"></i>
+									<span>JAVASCRIPT</span>
+								</li>
+
+								<li>
+									<i class="fa-brands fa-bootstrap"></i>
+									<span>BOOTSTRAP</span>
+								</li>
+
+								<li>
+									<i class="fa-brands fa-react"></i>
+									<span>REACT</span>
+								</li>
+
+								<li>
+									<img class="icon-typescript" src="assets/imagens/typescript.svg">
+									<span>TYPESCRIPT</span>
+								</li>
+
+								<li>
+									<i class="fa-brands fa-sass"></i>
+									<span>SASS</span>
+								</li>
+
+								<li>
+									<i class="fa-brands fa-git-alt"></i>
+									<span>GIT</span>
+								</li>
+							</ul>
+						</div>
+
+						<div class="educacao">
+							<h4 class="titulo-secundario">EDUCAÇÃO</h4>
+
+							<div class="card">
+								<h5>Análises e Desenvolvimento de Sistemas</h5>
+
+								<p>Universidade Estácio de Sá (2020 - 2022)</p>
+							</div>
+						</div>
+					</div>
 				</div>
+			</section>
 
-				<div class="skills">
-					<ul>
-						<li>HTML</li>
-						<li>CSS</li>
-						<li>JS</li>
-						<li>JQuery</li>
-						<li>React JS</li>
-						<li>Bootstrap</li>
-						<li>Git</li>
+			<section id="portfolio" class="portfolio bg-principal page">
+				<div class="container">
+					<h3 class="titulo-principal text-center">
+						<span class="cor-destaque">Meu</span> Portfólio
+					</h3>
+
+					<ul class="projetos">
+						<li class="projetos-item">
+							<a href="https://remison-junio.github.io/site-about-us/" target="_blank" rel="noopener noreferrer" class="projetos-link">
+								<img class="projetos-img" src="assets/imagens/portfolio-1.jpg">
+
+								<div class="descricao">
+									<span>Ver projeto</span>
+								</div>
+							</a>
+						</li>
+
+						<li class="projetos-item">
+							<a href="https://remison-junio.github.io/restaurant/" target="_blank" rel="noopener noreferrer" class="projetos-link">
+								<img class="projetos-img" src="assets/imagens/portfolio-2.jpg">
+
+								<div class="descricao">
+									<span>Ver projeto</span>
+								</div>
+							</a>
+						</li>
+
+						<li class="projetos-item">
+							<a href="https://remison-junio.github.io/site-10" target="_blank" rel="noopener noreferrer" class="projetos-link">
+								<img class="projetos-img" src="assets/imagens/portfolio-3.jpg">
+
+								<div class="descricao">
+									<span>Ver projeto</span>
+								</div>
+							</a>
+						</li>
+
+						<li class="projetos-item">
+							<a href="https://remison-junio.github.io/site-9" target="_blank" rel="noopener noreferrer" class="projetos-link">
+								<img class="projetos-img" src="assets/imagens/portfolio-4.jpg">
+
+								<div class="descricao">
+									<span>Ver projeto</span>
+								</div>
+							</a>
+						</li>
+
+						<li class="projetos-item">
+							<a href="https://remison-junio.github.io/site-8" target="_blank" rel="noopener noreferrer" class="projetos-link">
+								<img class="projetos-img" src="assets/imagens/portfolio-5.jpg">
+
+								<div class="descricao">
+									<span>Ver projeto</span>
+								</div>
+							</a>
+						</li>
+
+						<li class="projetos-item">
+							<a href="https://remison-junio.github.io/site-7" target="_blank" rel="noopener noreferrer" class="projetos-link">
+								<img class="projetos-img" src="assets/imagens/portfolio-6.jpg">
+
+								<div class="descricao">
+									<span>Ver projeto</span>
+								</div>
+							</a>
+						</li>
+
+						<li class="projetos-item verMais invisivel">
+							<a href="https://remison-junio.github.io/site-6/" target="_blank" rel="noopener noreferrer" class="projetos-link">
+								<img class="projetos-img" src="assets/imagens/portfolio-7.jpg">
+
+								<div class="descricao">
+									<span>Ver projeto</span>
+								</div>
+							</a>
+						</li>
+
+						<!--
+							talvez serão retirado os dois
+
+
+							
+						<li class="projetos-item verMais invisivel">
+							<a href="" class="projetos-link">
+								<img class="projetos-img" src="assets/imagens/portfolio-8.jpg">
+
+								<div class="descricao">
+									<span>Ver projeto</span>
+								</div>
+							</a>
+						</li>
+
+						<li class="projetos-item verMais invisivel">
+							<a href="" class="projetos-link">
+								<img class="projetos-img" src="assets/imagens/portfolio-9.jpg">
+
+								<div class="descricao">
+									<span>Ver projeto</span>
+								</div>
+							</a>
+						</li>
+
+						-->
 					</ul>
+
+					<button id="portfolio-btn-verMais" class="btn btn-primario">Ver mais</button>
 				</div>
 			</section>
 
-			<section id="portfolio">
-				<h3>Portifólio</h3>
+			<section id="contato" class="contato bg-principal page">
+				<div class="container">
+					<h3 class="titulo-principal text-center">
+						<span class="cor-destaque">Meu</span> Contato
+					</h3>
 
-				<ul>
-					<li>
-						<a href="">
-							<img src="">
-						</a>
-					</li>
+					<div class="contato-flex">
+						<div class="meus-contatos">
+							<ul class="contatos-principais">
+								<li>
+									<h5 class="">Endereço</h5>
+									<p>
+										<i class="fa-solid fa-location-dot"></i>
+										Rubina - Igarassu / PE
+									</p>
+								</li>
 
-					<li>
-						<a href="">
-							<img src="">
-						</a>
-					</li>
+								<li>
+									<h5 class="">Número</h5>
+									<p>
+										<i class="fa-solid fa-phone"></i>
+										<a class="btn-link" href="tel:+5581987675330">81 9 8181-8181</a>
+									</p>
+								</li>
 
-					<li>
-						<a href="">
-							<img src="">
-						</a>
-					</li>
+								<li>
+									<h5 class="">E-mail</h5>
+									<p>
+										<i class="fa-solid fa-envelope"></i>
+										<a class="btn-link" href="mailto:email@gmail.com">email@gmail.com</a>
+									</p>
+								</li>
+							</ul>
+							
+							<ul class="redes-sociais">
+								<li>
+									<a href="https://www.linkedin.com/in/remisonjunio" target="_blank" rel="noopener noreferrer">
+										<i class="fa-brands fa-linkedin-in"></i>
+									</a>
+								</li>
 
-					<li>
-						<a href="">
-							<img src="">
-						</a>
-					</li>
-				</ul>
+								<li>
+									<a href="https://github.com/remison-junio" target="_blank" rel="noopener noreferrer">
+										<i class="fa-brands fa-github"></i>
+									</a>
+								</li>
 
-				<button>Ver mais</button>
-				
-			</section>
+								<li>
+									<a href="https://www.instagram.com/remisonpires/" target="_blank" rel="noopener noreferrer">
+										<i class="fa-brands fa-instagram"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
 
-			<section id="contato">
-				<h3>Contato</h3>
-
-				<ul>
-					<li>Endereço: Rubina - Igarassu / PE</li>
-					<li>Número: 81 9 8181-8184</li>
-					<li>Linkedin: <a href="">remisonjunio@gmail.com</a></li>
-					<li>GIt Hub: <a href="">remisonjunio@gmail.com</a></li>
-					<li>Instagram: <a href="">remisonjunio@gmail.com</a></li>
-				</ul>
+						<div class="imagem">
+							<img src="assets/imagens/celular.svg">
+						</div>
+					</div>
+				</div>
 			</section>
 		</main>
+
+		<script src="assets/js/index.js"></script>
 	</body>
 </html>
