@@ -38,7 +38,6 @@ main {
 	content: '';
 	position: absolute;
 	top: 0;
-	height: 0;
 	right: 0;
 	left: 0;
 	background-color: rgba(0, 0, 0, .8);
@@ -146,7 +145,7 @@ main {
 	position: relative;
 }
 
-.menu .menu-link:after {
+.menu .menu-link::after {
 	content: '';
 	position: absolute;
 	width: 0px;
@@ -159,7 +158,7 @@ main {
 	transition-delay: .3s;
 }
 
-.nav.active .menu .menu-link.active:after {
+.nav.active .menu .menu-link.active::after {
 	background-color: var(--cor-tercearia);
 	width: 3px;
 	left: 56px;
@@ -210,13 +209,13 @@ main {
 	color: var(--cor-tercearia);
 }
 
-.titulo-principal, .titulo-secundario {
+.titulo-principal, .eu, .titulo-secundario {
 	color: var(--cor-secundaria);
 	text-transform: uppercase;
 	font-family: var(--font-titulos);
 }
 
-.titulo-principal {
+.titulo-principal, .eu {
 	font-size: 45px;
 	font-weight: 900;
 	margin-bottom: 50px;
@@ -246,7 +245,7 @@ main {
 	transition: .3s;
 }
 
-.btn-link:after {
+.btn-link::after {
 	position: absolute;
 	content: '';
 	height: 1px;
@@ -257,7 +256,7 @@ main {
 	transition: .3s;
 }
 
-.btn-link:hover:after {
+.btn-link:hover::after {
 	width: 100%;
 }
 
@@ -317,12 +316,11 @@ main {
 	display: flex;
 }
 
-.grid {
-	display: grid;
-	grid-row-gap: 40px;
+.mb-40 {
+	margin-bottom: 40px;
 }
 
-.sobre, .portfolio, .contato {
+.sobre, .portfolio, .contatos {
 	padding: 70px 0;
 }
 
@@ -333,7 +331,7 @@ main {
 	display: flex;
 }
 
-.home:after {
+.home::after {
 	content: '';
 	position: absolute;
 	background-color: rgba(0, 0, 0, .7);
@@ -371,7 +369,7 @@ main {
 	text-align: center;
 }
 
-.home .titulo-principal {
+.home .eu {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
@@ -381,6 +379,10 @@ main {
 	font-size: 40px;
 	line-height: 50px;
 	margin: 10px 0;
+
+
+
+	/*margin: 20px 0;*/
 }
 
 .home .cor-destaque {
@@ -395,7 +397,7 @@ main {
 	position: relative;
 }
 
-.home .hello:after {
+.home .hello::after {
 	position: absolute;
 	content: '|';
 	top: -1px;
@@ -417,6 +419,10 @@ main {
 	color: var(--cor-primaria);
 	margin-bottom: 20px;
 	font-size: 17px;
+
+
+
+	/*margin-bottom: 30px;*/
 }
 
 .home-btns {
@@ -428,10 +434,6 @@ main {
 .home .btn {
 	padding: 8px 25px;
 	margin: 0 5px 10px;
-}
-
-.sobre {
-	display: flex;
 }
 
 .sobre .imagem {
@@ -496,7 +498,7 @@ main {
 	visibility: visible;
 }
 
-.sobre .skills li span:after {
+.sobre .skills li span::after {
 	content: '';
 	position: absolute;
 	border-top: 7px solid #333;
@@ -561,9 +563,9 @@ main {
 .portfolio .projetos {
 	display: grid;
 	grid-template-columns: auto;
-	grid-row-gap: 30px;
+	row-gap: 30px;
 	margin-bottom: 50px;
-	grid-column-gap: 30px;
+	column-gap: 30px;
 }
 
 .portfolio .projetos .projetos-item {
@@ -617,37 +619,37 @@ main {
 	margin: auto;
 }
 
-.contato {
+.contatos {
 	height: 100vh;
-	min-height: 600px;
+	min-height: 620px;
 }
 
-.contato .meus-contatos {
+.contatos .meus-contatos {
 	padding-left: 20px;
 }
 
-.contato-flex {
+.contatos-flex {
 	display: flex;
 }
 
-.contato .contatos-principais li + li {
+.contatos .contatos-principais .contatos-principais-item + .contatos-principais-item {
 	margin-top: 25px;
 }
 
-.contato .contatos-principais h5 {
+.contatos .contatos-principais h5 {
 	color: #9b9b9b;
 	font-size: 16px;
 	font-weight: 400;
 	margin-bottom: 10px;
 }
 
-.contato .contatos-principais p, .contato .contatos-principais .btn-link {
+.contatos .contatos-principais p, .contatos .contatos-principais .btn-link {
 	color: var(--cor-secundaria);
 	font-size: 17px;
 	font-weight: 300;
 }
 
-.contato .contatos-principais i {
+.contatos .contatos-principais i {
 	font-size: 16px;
 	margin-right: 10px;
 }
@@ -664,17 +666,17 @@ main {
 	color: #c02aa0;
 }
 
-.contato .redes-sociais {
+.contatos .redes-sociais {
+	margin-top: 40px;
 	display: flex;
 	flex-wrap: wrap;
-	margin-top: 40px;
 }
 
-.contato .redes-sociais li {
+.contatos .redes-sociais .redes-sociais-item {
 	margin: 10px 20px 10px 0;
 }
 
-.contato .redes-sociais a {
+.contatos .redes-sociais a {
 	border: 1px solid rgba(0, 0, 0, .25);
 	display: flex;
 	width: 60px;
@@ -687,17 +689,17 @@ main {
 	box-shadow: 0 5px 10px rgba(0, 0, 0, .3);
 }
 
-.contato .redes-sociais a:hover {
+.contatos .redes-sociais a:hover {
 	transform: translateY(-3px);
 	box-shadow: 0 10px 15px rgba(0, 0, 0, .3);
 }
 
-.contato .imagem {
+.contatos .imagem {
 	display: none;
 	overflow: hidden;
 }
 
-.contato .imagem img {
+.contatos .imagem img {
 	width: 320px;
 }
 
@@ -723,8 +725,42 @@ main {
 	}
 }
 
-.page.active.inicial {
+/*.page.active.inicial {
 	animation-duration: 0s;
+}*/
+
+.page [data-animacao-seq], .page [data-animacao] {
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity .7s, transform .7s;
+}
+
+.page.active [data-animacao-seq].visivel, .page.active [data-animacao].visivel {
+	transform: translate(0);
+	visibility: visible;
+	opacity: 1;
+}
+
+[data-animacao-seq='bottom'], [data-animacao='bottom'] {
+	transform: translateY(50px);
+}
+
+[data-animacao-seq='left'], [data-animacao='left'] {
+	transform: translateX(-100px);
+}
+
+[data-animacao-seq='right'], [data-animacao='right'] {
+	transform: translateX(100px);
+}
+
+[data-animacao='top'] {
+	transform: translateY(-100px);
+}
+
+@media (min-width: 437px) {
+	.contatos {
+		min-height: 570px;
+	}
 }
 
 @media (min-width: 576px) {
@@ -736,7 +772,7 @@ main {
 		font-size: 52px;
 	}
 
-	.home .titulo-principal {
+	.home .eu {
 		font-size: 50px;
 		line-height: 60px;
 		margin: 15px 0;
@@ -774,7 +810,7 @@ main {
 		font-size: 60px;
 	}
 
-	.home .titulo-principal {
+	.home .eu {
 		font-size: 55px;
 		line-height: 60px;
 		margin: 20px 0;
@@ -806,11 +842,11 @@ main {
 		max-width: 100%;
 	}
 
-	.contato-flex {
+	.contatos-flex {
 		justify-content: space-around;
 	}
 
-	.contato .imagem {
+	.contatos .imagem {
 		display: block;
 	}
 }
@@ -887,7 +923,7 @@ main {
 		margin-bottom: 70px;
 	}
 
-	.sobre, .portfolio, .contato {
+	.sobre, .portfolio, .contatos {
 		padding: 140px 0 70px;
 	}
 
@@ -895,7 +931,7 @@ main {
 		top: 35px;
 	}
 
-	.home .titulo-principal {
+	.home .eu {
 		font-size: 60px;
 	}
 
@@ -904,12 +940,11 @@ main {
 		height: 39px;
 	}
 
-	.contato {
-		height: auto;
-		min-height: auto;
+	.contatos {
+		min-height: 730px;
 	}
 
-	.contato .imagem img {
+	.contatos .imagem img {
 		width: 420px;
 		position: relative;
 		top: -40px;

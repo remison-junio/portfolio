@@ -1,21 +1,79 @@
-const body = document.querySelector('body');
-body.classList.add('carregando');
-
 const hello = document.querySelector('#hello');
 
 window.onload = ()=> {
-	efeitoMaquina(hello);
+	const body = document.querySelector('body');
 	body.classList.remove('carregando');
+
+	efeitoMaquina(hello);
+	observer();
+}
+
+const addClass = (element, classe) => element.classList.add(classe);
+const removeClass = (element, classe) => element.classList.remove(classe);
+
+function ocutandoItens() {
+	const dataAnimacao = document.querySelectorAll('[data-animacao]');
+	const dataAnimacaoSeq = document.querySelectorAll('[data-animacao-seq]');
+
+	dataAnimacao.forEach(item => removeClass(item, 'visivel'));
+	dataAnimacaoSeq.forEach(item => removeClass(item, 'visivel'));
+}
+
+function observer() {
+	//Entrada animada em sequência
+
+	const homeAnimacaoEntradaEmSeq = document.querySelectorAll('#home [data-animacao-seq]');
+	const sobreAnimacaoEntradaEmSeq = document.querySelectorAll('#sobre [data-animacao-seq]');
+	const portfolioAnimacaoEntradaEmSeq = document.querySelectorAll('#portfolio [data-animacao-seq]');
+	const contatosAnimacaoEntradaEmSeq = document.querySelectorAll('#contatos [data-animacao-seq]');
+
+	function observandoItens(entries, timer) {
+		entries.forEach((entry, i) => {
+			if(entry.isIntersecting) {
+				setTimeout(() => {addClass(entry.target, 'visivel');}, timer * i);
+			}
+		});
+	}
+
+	const observerHomeSeq = new IntersectionObserver(item => observandoItens(item, 300));
+	const observerSobreSeq = new IntersectionObserver(item => observandoItens(item, 100));
+	const observerPortfolioSeq = new IntersectionObserver(item => observandoItens(item, 150));
+	const observerContatosSeq = new IntersectionObserver(item => observandoItens(item, 250));
+
+	homeAnimacaoEntradaEmSeq.forEach(item => observerHomeSeq.observe(item));
+	sobreAnimacaoEntradaEmSeq.forEach(item => observerSobreSeq.observe(item));
+	portfolioAnimacaoEntradaEmSeq.forEach(item => observerPortfolioSeq.observe(item));
+	contatosAnimacaoEntradaEmSeq.forEach(item => observerContatosSeq.observe(item));
+
+	//Entrada animada
+
+	const dataAnimacao = document.querySelectorAll('[data-animacao]');
+
+	const observer = new IntersectionObserver(entradaAnimada);
+
+	function entradaAnimada(entries) {
+		entries.forEach((entry) => {
+	    if(entry.isIntersecting)  {
+	    	addClass(entry.target, 'visivel');
+	    }
+	  });
+	}
+
+	dataAnimacao.forEach(item => observer.observe(item));
 }
 
 function efeitoMaquina(elemento) {
-	const arrayHello = elemento.innerHTML.split('');
+	if(!elemento.innerHTML === 'Hello World!') {
+		return
+	}
+
 	elemento.innerHTML = '';
 
-	arrayHello.forEach((letra, i) => {
-		setTimeout(()=> {
-			elemento.innerHTML += letra;
-		}, 150 * i);
+	const texto = 'Hello World!';
+	const arrayTexto = texto.split('');
+
+	arrayTexto.forEach((item, i) => {
+		setTimeout(() => {elemento.innerHTML += arrayTexto[i];}, 150 * i);
 	});
 }
 
@@ -28,13 +86,12 @@ btnMenu.addEventListener('click', menuToggle);
 function menuToggle(e) {
 	e.preventDefault();
 
-	const verificarMenuAberto = nav.classList.contains('active');
-
-	if(verificarMenuAberto){
+	if(nav.classList.contains('active')){
 		fecharMenu();
-	} else {
-		abrirMenu();
-	}
+		return
+	} 
+	
+	abrirMenu();
 }
 
 bgMenuAberto.addEventListener('click', fecharMenu);
@@ -49,80 +106,71 @@ function  abrirMenu() {
 	addClass(bgMenuAberto, 'active');
 }
 
-const portfolioBtnVerMais = document.querySelector('#portfolio-btn-verMais');
+const menuLink = document.querySelectorAll('.menu-link');
+const page = document.querySelectorAll('.page');
 
+function escolhendoPage(btn, i) {
+	menuLink.forEach(item => removeClass(item, 'active'));
+	page.forEach(item => removeClass(item, 'active'));
+
+	ocutandoItens();
+
+	addClass(btn, 'active');
+	addClass(page[i], 'active');
+
+	bgHeaderToggle();
+}
+
+const portfolioBtnVerMais = document.querySelector('#portfolio-btn-verMais');
 portfolioBtnVerMais.addEventListener('click', projetosToggle);
 
 function projetosToggle() {
 	const projetoItensVerMais = document.querySelectorAll('.projetos-item.verMais');
 
 	projetoItensVerMais.forEach(item => {
-
 		if(item.classList.contains('invisivel')) {
 			removeClass(item, 'invisivel');
 			portfolioBtnVerMais.innerText = 'Ver menos';
-		} else {
-			addClass(item, 'invisivel');
-			portfolioBtnVerMais.innerText = 'Ver mais';
+			return
 		}
+
+		addClass(item, 'invisivel');
+		portfolioBtnVerMais.innerText = 'Ver mais';
 	});
 }
-
-const menuLink = document.querySelectorAll('.menu-link');
-const page = document.querySelectorAll('.page');
 
 menuLink.forEach((btn, i) => {
 	btn.addEventListener('click', e => {
 		e.preventDefault();
 
-		window.scrollTo(0, 0)
-
-		if(page[0].classList.contains('inicial')) {
-			removeClass(page[0], 'inicial');
-		}
+		window.scrollTo(0, 0);
 
 		if(btn.classList.contains('active')) {
 			fecharMenu();
-		} else {
-			menuLink.forEach(item => removeClass(item, 'active'));
-			page.forEach(item => removeClass(item, 'active'));
-
-			fecharMenu();
-
-			addClass(btn, 'active');
-			addClass(page[i], 'active');
+			return
 		}
 
-		bgHeaderToggle();
+		if(page[0].classList.contains('active')) {
+			efeitoMaquina(hello);
+		}
+
+		fecharMenu();
+		escolhendoPage(btn, i);
 	});
 });
 
 const btnSobreMim = document.querySelector('#btn-sobreMim');
-
-btnSobreMim.addEventListener('click', e => {
-	e.preventDefault();
-	homeBtn('.sobre', 1)
-});
+btnSobreMim.addEventListener('click', e => homeBtn(e, 1));
 
 const btnPortfolio = document.querySelector('#btn-portfolio');
+btnPortfolio.addEventListener('click', e => homeBtn(e, 2));
 
-btnPortfolio.addEventListener('click', e => {
-	e.preventDefault();
-	homeBtn('.portfolio', 2)
-});
+function homeBtn(e, i) {
+	e.preventDefault()
 
-function homeBtn(secao, i) {
-	window.scrollTo(0, 0)
-	
-	secao = document.querySelector(secao);
+	window.scrollTo(0, 0);
 
-	page.forEach(item => removeClass(item, 'active'));
-	menuLink.forEach(item => removeClass(item, 'active'));
-
-	addClass(menuLink[i], 'active');
-	addClass(secao, 'active');
-
-	bgHeaderToggle();
+	escolhendoPage(menuLink[i], i);
 }
 
 function bgHeaderToggle() {
@@ -130,17 +178,10 @@ function bgHeaderToggle() {
 
 	if(menuLink[0].classList.contains('active')) {
 		addClass(header, 'bg-transparent');
-	} else {
-		removeClass(header, 'bg-transparent');
+		return
 	}
-}
 
-function addClass(element, classe) {
-	element.classList.add(classe);
-}
-
-function removeClass(element, classe) {
-	element.classList.remove(classe);
+	removeClass(header, 'bg-transparent');
 }
 
 window.addEventListener('resize', debounce(() => widthMaior()));
@@ -155,7 +196,7 @@ function debounce(func, timeout = 200){
 
 function widthMaior() {
 	let width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    if (width >= 992) {
-        fecharMenu();
-    }
+  if (width >= 992) {
+    fecharMenu();
+  }
 }
