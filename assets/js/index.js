@@ -63,18 +63,19 @@ function observer() {
 }
 
 function efeitoMaquina(elemento) {
-	if(!elemento.innerHTML === 'Hello World!') {
+
+	if(elemento.innerHTML !== 'Hello World!') {
 		return
 	}
 
-	elemento.innerHTML = '';
+		elemento.innerHTML = '';
 
-	const texto = 'Hello World!';
-	const arrayTexto = texto.split('');
+		const texto = 'Hello World!';
+		const arrayTexto = texto.split('');
 
-	arrayTexto.forEach((item, i) => {
-		setTimeout(() => {elemento.innerHTML += arrayTexto[i];}, 150 * i);
-	});
+		arrayTexto.forEach((item, i) => {
+			setTimeout(() => {elemento.innerHTML += arrayTexto[i];}, 150 * i);
+		});
 }
 
 const nav = document.querySelector('#navegacao');
@@ -150,12 +151,12 @@ menuLink.forEach((btn, i) => {
 			return
 		}
 
+		fecharMenu();
+		escolhendoPage(btn, i);
+
 		if(page[0].classList.contains('active')) {
 			efeitoMaquina(hello);
 		}
-
-		fecharMenu();
-		escolhendoPage(btn, i);
 	});
 });
 
