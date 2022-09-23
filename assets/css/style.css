@@ -271,7 +271,7 @@ main {
 	margin: 0 auto;
 	text-transform: uppercase;
 	display: flex;
-	transition: .3s;
+	transition: box-shadow .3s, color .3s, background-color .3s, border-color .3s;
 }
 
 .btn:hover {
@@ -379,10 +379,6 @@ main {
 	font-size: 40px;
 	line-height: 50px;
 	margin: 10px 0;
-
-
-
-	/*margin: 20px 0;*/
 }
 
 .home .cor-destaque {
@@ -419,10 +415,6 @@ main {
 	color: var(--cor-primaria);
 	margin-bottom: 20px;
 	font-size: 17px;
-
-
-
-	/*margin-bottom: 30px;*/
 }
 
 .home-btns {
@@ -490,6 +482,7 @@ main {
 	opacity: 0;
 	visibility: hidden;
 	transition: .3s;
+	white-space: nowrap;
 }
 
 .sobre .skills li:hover span {
@@ -604,7 +597,7 @@ main {
 	visibility: hidden;
 	opacity: 0;
 	display: flex;
-	transition: .2s;
+	transition: .3s;
 }
 
 .portfolio .projetos-link:hover .descricao {	
@@ -724,10 +717,6 @@ main {
 		opacity: 1;
 	}
 }
-
-/*.page.active.inicial {
-	animation-duration: 0s;
-}*/
 
 .page [data-animacao-seq], .page [data-animacao] {
 	opacity: 0;
