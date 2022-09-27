@@ -271,7 +271,7 @@ main {
 	margin: 0 auto;
 	text-transform: uppercase;
 	display: flex;
-	transition: box-shadow .3s, color .3s, background-color .3s, border-color .3s;
+	transition: box-shadow .5s, color .3s, background-color .3s, border-color .3s;
 }
 
 .btn:hover {
@@ -310,6 +310,18 @@ main {
 	color: var(--cor-tercearia);
 	border: 1px solid var(--cor-tercearia);
 	background-color: transparent;
+}
+
+.btn-quarto {
+	border: 1px solid var(--cor-secundaria);
+	color: var(--cor-primaria);
+	background-color: var(--cor-secundaria);
+}
+
+.btn-quarto:hover {
+	color: var(--cor-primaria);
+	background-color: var(--cor-tercearia);
+	border: 1px solid var(--cor-tercearia);
 }
 
 .flex {
@@ -610,6 +622,10 @@ main {
 	text-transform: uppercase;
 	font-size: 17px;
 	margin: auto;
+}
+
+[data-filtro].filtro {
+	display: none !important;
 }
 
 .contatos {
